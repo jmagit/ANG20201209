@@ -19,16 +19,16 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat dicta officiis
   Calcula: 2 + 2 = {{2 + 2}} = {{ vm.calcula(2, 2) }}
 </p>
 <ul>
-  <li ng-repeat="provincia in listado"
+  <li ng-repeat="provincia in vm.listado"
 style="background-color:{{$even?'white':'yellow'}}">
     {{provincia.nombre}} ({{provincia.id}})
-    [{{$index + 1}} de {{vm.listado.lenght}}]
+    [{{$index + 1}} de {{vm.listado.length}}]
   </li>
 </ul>
 
 <p>
   <select ng-model="vm.idProvincia"
-    ng-options="p.id as p.nombre for p in listado track by p.id" >
+    ng-options="p.id as p.nombre for p in vm.listado track by p.id" >
     <option value="">--Elige opcion--</option>
   </select>
   Seleccionado: {{vm.idProvincia}}

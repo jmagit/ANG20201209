@@ -73,7 +73,7 @@ cursoAppModule.controller('DemoController', [function() {
     vm.calcula = function(a, b) { return a + b; }
 
     vm.add = function(provincia) {
-      var id = vm.listado.lenght == 0 ? 1 : (vm.listado[vm.listado.lenght - 1].id + 1);
+      var id = vm.listado.length == 0 ? 1 : (vm.listado[vm.listado.length - 1].id + 1);
       vm.listado.push({id: id, nombre: provincia});
       vm.idProvincia = id;
     }
