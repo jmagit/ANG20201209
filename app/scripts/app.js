@@ -30,6 +30,11 @@ cursoAppModule.config(function ($routeProvider) {
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/demo', {
+        templateUrl: 'views/demo.html',
+        controller: 'DemoController',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });
