@@ -81,3 +81,15 @@ body {
     border-bottom: 0;
   }
 }
+
+.error {
+  color: red;
+}
+
+.importante {
+  font-size: large;
+}
+
+.urgente {
+  font-style: italic;
+}

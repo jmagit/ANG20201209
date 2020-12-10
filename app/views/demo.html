@@ -1,4 +1,4 @@
-<h1>Hola {{vm.nombre}}</h1>
+<h1>Hola {{vm.nombre | uppercase }}</h1>
 <p>
   <input type="text" ng-model="vm.nombre" >
   <input type="button" value="saluda" ng-click="vm.saluda()" >
@@ -16,12 +16,12 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat dicta officiis
 </p>
 
 <p>
-  Calcula: 2 + 2 = {{2 + 2}} = {{ vm.calcula(2, 2) }}
+  Calcula: 2 + 2 = {{2 + 2}} = {{ vm.calcula(2, 2) | currency:'€' }}
 </p>
 <ul>
-  <li ng-repeat="provincia in vm.listado"
+  <li ng-repeat="provincia in vm.listado | limitTo:-5 | orderBy:'nombre'"
 style="background-color:{{$even?'white':'yellow'}}">
-    {{provincia.nombre}} ({{provincia.id}})
+    {{provincia.nombre | capitalize }} ({{provincia.id}})
     [{{$index + 1}} de {{vm.listado.length}}]
   </li>
 </ul>
@@ -35,3 +35,4 @@ style="background-color:{{$even?'white':'yellow'}}">
   <input type="button" value="Bilbao" ng-click="vm.add('Bilbao')" >
   <input type="button" value="Toledo" ng-click="vm.add('Toledo')" >
 </p>
+{{vm.listado | json}}
