@@ -35,6 +35,16 @@ cursoAppModule.config(function ($routeProvider) {
         controller: 'DemoController',
         controllerAs: 'vm'
       })
+      .when('/calculadora', {
+        templateUrl: 'views/calculadora.html',
+        controller: 'CalculadoraController',
+        controllerAs: 'ctrl'
+      })
+      .when('/calc', {
+        templateUrl: 'views/calculadora.en.html',
+        controller: 'CalculadoraController',
+        controllerAs: 'ctrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

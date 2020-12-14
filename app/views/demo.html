@@ -16,7 +16,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat dicta officiis
 </p>
 
 <p>
-  Calcula: 2 + 2 = {{2 + 2}} = {{ vm.calcula(2, 2) | currency:'€' }}
+  Calcula: 2 + 2 = {{2 + 2}} = {{ vm.calcula(2, 2) | currency }}
 </p>
 <ul>
   <li ng-repeat="provincia in vm.listado | limitTo:-5 | orderBy:'nombre'"
@@ -28,7 +28,7 @@ style="background-color:{{$even?'white':'yellow'}}">
 
 <p>
   <select ng-model="vm.idProvincia"
-    ng-options="p.id as p.nombre for p in vm.listado track by p.id" >
+    ng-options="p.id as p.nombre | initcap for p in vm.listado track by p.id" >
     <option value="">--Elige opcion--</option>
   </select>
   Seleccionado: {{vm.idProvincia}}
