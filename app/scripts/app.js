@@ -45,6 +45,11 @@ cursoAppModule.config(function ($routeProvider) {
         controller: 'CalculadoraController',
         controllerAs: 'ctrl'
       })
+      .when('/personas', {
+        templateUrl: 'views/personas/formulario.html',
+        controller: 'PersonasController',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });
