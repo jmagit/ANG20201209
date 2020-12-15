@@ -1,5 +1,6 @@
 ﻿angular.module('cursoApp').controller('CalculadoraController',
-  ['$log', '$scope', function ($log, $scope) {
+  ['$log', '$scope', 'TitleService', function ($log, $scope, TitleService) {
+    TitleService.Titulo('Calculadora');
     var vm = this;
     var acumulado = 0;
     var operador = '+';

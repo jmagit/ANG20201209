@@ -54,9 +54,42 @@ cursoAppModule.config(function ($routeProvider) {
         redirectTo: '/'
       });
   });
-cursoAppModule.controller('DemoController', [function() {
+cursoAppModule.constant('version', 1);
+cursoAppModule.factory('TitleService', [function() {
+  var titulo = 'Curso de AngularJS';
+  return {
+    Titulo: function(newName) {
+      return arguments.length ? (titulo = newName) : titulo;
+      }
+  };
+}]);
+cursoAppModule.factory('NotificationService', [function() {
+  var listado = [];
+  return {
+    add: function(msg) {
+        var id = listado.length == 0 ? 1 : (listado[listado.length - 1].id + 1);
+        listado.push({id: id, mensaje: msg});
+    },
+    remove: function(index) {
+      listado.splice(index, 1);
+    },
+    clear: function() {
+      listado = [];
+    },
+    hayNotificaciones: function() { return listado.length > 0; },
+    notificaciones: function() { return Object.assign([], listado);}
+  };
+}]);
+
+cursoAppModule.controller('ApplicationController', ['TitleService','NotificationService', function(TitleService, notify) {
+  var vm = this;
+
+  vm.dameTitulo = function() { return TitleService.Titulo() }
+  vm.Notify = notify;
+}]);
+cursoAppModule.controller('DemoController', ['TitleService', 'NotificationService', function(TitleService, notify) {
     var vm = this;
-    vm.nombre = 'mundo';
+    vm.nombre = TitleService.Titulo();
     vm.listado = [
       { id: 1, nombre: 'Madrid'},
       { id: 2, nombre: 'BARCELONA'},
@@ -64,6 +97,7 @@ cursoAppModule.controller('DemoController', [function() {
       { id: 4, nombre: 'A coruñA'},
     ];
     vm.idProvincia = 2;
+    TitleService.Titulo('Soy una demo');
 
     vm.resultado = null;
     vm.visible = true;
@@ -71,6 +105,7 @@ cursoAppModule.controller('DemoController', [function() {
 
     vm.saluda = function() {
       vm.resultado = 'Hola ' + vm.nombre;
+      notify.add(vm.resultado);
     }
     vm.despide = function() {
       vm.resultado = 'Adios ' + vm.nombre;
