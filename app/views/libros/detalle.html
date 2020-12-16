@@ -1,0 +1,13 @@
+<p>
+  <b>Código:</b> {{vm.elemento.idLibro}} <br>
+  <b>Titulo:</b> {{vm.elemento.titulo}} <br>
+  <b>Autor:</b> {{vm.elemento.autor}} <br>
+  <b>Pais:</b> {{vm.elemento.pais}} <br>
+  <b>Fecha:</b> {{vm.elemento.fecha}} <br>
+  <b>Paginas:</b> {{vm.elemento.paginas}} <br>
+  <a ng-href="{{vm.elemento.wiki}}">Ver mas ...</a>
+</p>
+<p>
+  <a class="btn btn-info" ng-href="#!/libros/{{vm.elemento.idLibro}}/edit">Edit</a>
+  <button type="button" class="btn btn-default" ng-click="vm.cancelar()">Volver</button>
+</p>

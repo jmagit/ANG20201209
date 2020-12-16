@@ -1,0 +1,63 @@
+<form name="miForm">
+  <div class="form-group" ng-if="vm.modo == 'add'">
+    <label for="idLibro">Código</label>
+    <input type="number" class="form-control" id="idLibro" name="idLibro" ng-model="vm.elemento.idLibro" placeholder="Código"
+      required>
+    <span class="error" ng-show="miForm.idLibro.$error.required && miForm.$dirty">Es obligatorio</span>
+  </div>
+  <div class="form-group" ng-if="vm.modo != 'add'">
+    <label>Código</label>
+    {{vm.elemento.idLibro}}
+  </div>
+  <div class="form-group">
+    <label for="titulo">Titulo</label>
+    <input type="text" class="form-control" id="titulo" name="titulo" ng-model="vm.elemento.titulo" placeholder="Titulo"
+      required ng-minlength="2" ng-maxlength="250" val-upper-case>
+    <span class="error" ng-show="miForm.titulo.$error.required">Es obligatorio</span>
+    <span class="error" ng-show="miForm.titulo.$error.valUpperCase">Tiene que estar en mayúsculas</span>
+    <span class="error" ng-show="miForm.titulo.$error.minlength || miForm.titulo.$error.maxlength">
+      Debe tener entre 2 y 250 letras
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="autor">Autor</label>
+    <input type="text" class="form-control" id="autor" name="autor" ng-model="vm.elemento.autor"
+      placeholder="Autor" ng-minlength="2" ng-maxlength="50">
+    <span class="error" ng-show="miForm.autor.$error.minlength || miForm.autor.$error.maxlength">
+      Debe tener entre 2 y 50 letras
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="pais">Pais</label>
+    <input type="text" class="form-control" id="pais" name="pais" ng-model="vm.elemento.pais"
+      placeholder="Pais" ng-minlength="2" ng-maxlength="10">
+    <span class="error" ng-show="miForm.pais.$error.minlength || miForm.pais.$error.maxlength">
+      Debe tener entre 2 y 10 letras
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="fecha">Fecha</label>
+    <input type="text" class="form-control" id="fecha" name="fecha" ng-model="vm.elemento.fecha" placeholder="Fecha"
+      >
+  </div>
+  <div class="form-group">
+    <label for="paginas">Páginas</label>
+    <input type="text" class="form-control" id="paginas" name="paginas" ng-model="vm.elemento.paginas" placeholder="Paginas"
+      min="1">
+    <span class="error" ng-show="miForm.paginas.$error.min">
+      Al menos una página
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="wiki">Wiki</label>
+    <input type="url" class="form-control" id="wiki" name="wiki" ng-model="vm.elemento.wiki"
+      placeholder="Wiki" ng-minlength="2" ng-maxlength="10">
+    <span class="error" ng-show="miForm.wiki.$error.url">
+      Formato de hipervinculo no valido
+    </span>
+  </div>
+  <button type="button" class="btn btn-default" ng-disabled="miForm.$invalid" ng-click="vm.enviar()">Enviar</button>
+  <input class="btn btn-danger" ng-if="vm.modo != 'add'" ng-click="vm.delete(item.idLibro)" value="Borrar" >
+  <button type="button" class="btn btn-default" ng-click="vm.cancelar()">Volver</button>
+</form>
+

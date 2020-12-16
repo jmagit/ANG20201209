@@ -70,6 +70,31 @@ cursoAppModule.config(function ($routeProvider) {
       controller: 'PersonasController',
       controllerAs: 'vm'
     })
+    .when('/libros', {
+      templateUrl: 'views/libros/listado.html',
+      controller: 'LibrosController',
+      controllerAs: 'vm'
+    })
+    .when('/libros/add', {
+      templateUrl: 'views/libros/formulario.html',
+      controller: 'LibrosController',
+      controllerAs: 'vm'
+    })
+    .when('/libros/:id/edit', {
+      templateUrl: 'views/libros/formulario.html',
+      controller: 'LibrosController',
+      controllerAs: 'vm'
+    })
+    .when('/libros/:id', {
+      templateUrl: 'views/libros/detalle.html',
+      controller: 'LibrosController',
+      controllerAs: 'vm'
+    })
+    .when('/libros/:id/:kk*', {
+      templateUrl: 'views/libros/detalle.html',
+      controller: 'LibrosController',
+      controllerAs: 'vm'
+    })
     .otherwise({
       redirectTo: '/'
     });
