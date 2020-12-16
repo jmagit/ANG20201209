@@ -47,5 +47,6 @@
     </span>
   </div>
   <button type="button" class="btn btn-default" ng-disabled="miForm.$invalid" ng-click="vm.enviar()">Enviar</button>
+  <input class="btn btn-danger" ng-if="vm.modo != 'add'" ng-click="vm.delete(item.id)" value="Borrar" >
   <button type="button" class="btn btn-default" ng-click="vm.cancelar()">Volver</button>
 </form>

@@ -1,0 +1,17 @@
+<table class="table">
+  <tr>
+    <th>Nombre</th>
+    <th><a class="btn btn-info" ng-href="#!/personas/add">Añadir</a></th>
+  </tr>
+  <tr ng-repeat="item in vm.listado">
+    <td>
+      <a ng-href="#!/personas/{{item.id}}/{{item.nombre | lowercase}}-{{item.apellidos | lowercase}}">
+        {{item.nombre | initcap}} {{item.apellidos | initcap}}
+      </a>
+    </td>
+    <td>
+      <a class="btn btn-info" ng-href="#!/personas/{{item.id}}/edit">Edit</a>
+      <input class="btn btn-danger" ng-click="vm.delete(item.id)" value="Borrar" >
+    </td>
+  </tr>
+</table>

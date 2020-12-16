@@ -1,0 +1,10 @@
+<p>
+  Código: {{vm.elemento.id}} <br>
+  Nombre: {{vm.elemento.nombre}} <br>
+  Apellidos: {{vm.elemento.apellidos}} <br>
+  Edad: {{vm.elemento.edad}} <br>
+</p>
+<p>
+  <a class="btn btn-info" ng-href="#!/personas/{{vm.elemento.id}}/edit">Edit</a>
+  <button type="button" class="btn btn-default" ng-click="vm.cancelar()">Volver</button>
+</p>
